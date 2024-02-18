@@ -8,33 +8,6 @@
     <artifactId>servlets</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.github.heroku</groupId>
-                                    <artifactId>webapp-runner</artifactId>
-                                    <version>${webapp-runner.version}</version>
-                                    <destFileName>webapp-runner.jar</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -50,21 +23,25 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>9.0.39</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>9.0.39</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>6.1.3</version>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.2.9.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.6</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.jsimone</groupId>
-            <artifactId>webapp-runner</artifactId>
-            <version>9.0.27.1</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
